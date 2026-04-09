@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Pro — B2B портал оптовой торговли автозапчастями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header" id="header">
+        <div class="header__container container">
+            <div class="header__top">
+                <a href="#" class="header__logo">
+                    <span class="logo__icon">🔧</span>
+                    <span class="logo__text">
+                        <strong>AutoParts</strong>
+                        <span class="logo__sub">Pro</span>
+                    </span>
+                    <span class="header__badge">B2B-портал</span>
+                </a>
+
+                <div class="header__search">
+                    <div class="search__wrapper">
+                        <input 
+                            type="text" 
+                            class="search__input" 
+                            id="searchInput"
+                            placeholder="Поиск по VIN, OEM или названию..."
+                            autocomplete="off"
+                        >
+                        <button class="search__btn" id="searchBtn" aria-label="Поиск">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="search__suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <div class="header__actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="mode-toggle" id="modeToggle" aria-label="Переключить режим">
+                        <span class="mode-toggle__text">Опт</span>
+                        <div class="mode-toggle__switch">
+                            <div class="mode-toggle__indicator"></div>
+                        </div>
+                    </button>
+
+                    <button class="cart-btn" id="cartBtn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+
+                    <button class="user-btn" id="userBtn" aria-label="Личный кабинет">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+
+                    <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="header__nav" id="headerNav">
+                <ul class="nav__list">
+                    <li><a href="#catalog" class="nav__link">Каталог</a></li>
+                    <li><a href="#about" class="nav__link">О компании</a></li>
+                    <li><a href="#delivery" class="nav__link">Доставка</a></li>
+                    <li><a href="#payment" class="nav__link">Оплата</a></li>
+                    <li><a href="#contacts" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero__container container">
+            <div class="hero__content">
+                <h1 class="hero__title">Оптовые поставки автозапчастей для бизнеса</h1>
+                <p class="hero__subtitle">Специальные цены для юридических лиц. Минимальная партия от 5 единиц. Скидки до 40% при объёме.</p>
+                <div class="hero__features">
+                    <div class="feature">
+                        <span class="feature__icon">📦</span>
+                        <span>Отгрузка в день оплаты</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature__icon">💳</span>
+                        <span>Работа с НДС</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature__icon">🔄</span>
+                        <span>Интеграция с 1С</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature__icon">📊</span>
+                        <span>API для складов</span>
+                    </div>
+                </div>
+                <a href="#catalog" class="btn btn--primary">Перейти в каталог</a>
+            </div>
+            <div class="hero__image">
+                <div class="hero__placeholder">
+                    <span class="hero__emoji">🚗</span>
+                    <span class="hero__label">Автозапчасти</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Быстрые категории -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Популярные категории</h2>
+            <div class="categories__grid">
+                <a href="#catalog" class="category-card" data-category="engine">
+                    <span class="category-card__icon">⚙️</span>
+                    <span class="category-card__name">Двигатель</span>
+                </a>
+                <a href="#catalog" class="category-card" data-category="suspension">
+                    <span class="category-card__icon">🔧</span>
+                    <span class="category-card__name">Подвеска</span>
+                </a>
+                <a href="#catalog" class="category-card" data-category="brakes">
+                    <span class="category-card__icon">🛑</span>
+                    <span class="category-card__name">Тормоза</span>
+                </a>
+                <a href="#catalog" class="category-card" data-category="electric">
+                    <span class="category-card__icon">⚡</span>
+                    <span class="category-card__name">Электрика</span>
+                </a>
+                <a href="#catalog" class="category-card" data-category="body">
+                    <span class="category-card__icon">🚙</span>
+                    <span class="category-card__name">Кузов</span>
+                </a>
+                <a href="#catalog" class="category-card" data-category="consumables">
+                    <span class="category-card__icon">🛢️</span>
+                    <span class="category-card__name">Расходники</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <div class="catalog__header">
+                <h2 class="section-title">Каталог товаров</h2>
+                <div class="catalog__controls">
+                    <div class="filter-group">
+                        <label for="filterBrand">Бренд:</label>
+                        <select id="filterBrand" class="filter-select">
+                            <option value="">Все бренды</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterCategory">Категория:</label>
+                        <select id="filterCategory" class="filter-select">
+                            <option value="">Все категории</option>
+                            <option value="engine">Двигатель</option>
+                            <option value="suspension">Подвеска</option>
+                            <option value="brakes">Тормоза</option>
+                            <option value="electric">Электрика</option>
+                            <option value="body">Кузов</option>
+                            <option value="consumables">Расходники</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortBy">Сортировка:</label>
+                        <select id="sortBy" class="filter-select">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Цена: по возрастанию</option>
+                            <option value="price-desc">Цена: по убыванию</option>
+                            <option value="name">По названию</option>
+                            <option value="stock">В наличии</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog__grid" id="catalogGrid">
+                <!-- Товары будут загружены через JS -->
+            </div>
+
+            <div class="catalog__empty" id="catalogEmpty" style="display: none;">
+                <span class="empty__emoji">🔍</span>
+                <p>Товары не найдены</p>
+                <button class="btn btn--secondary" id="resetFilters">Сбросить фильтры</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О компании</h2>
+            <div class="about__content">
+                <p>AutoParts Pro — ведущий поставщик автозапчастей для юридических лиц. Работаем с 2010 года, обеспечивая бесперебойные поставки для автосервисов, магазинов и дилерских центров.</p>
+                <div class="about__stats">
+                    <div class="stat">
+                        <span class="stat__value">50 000+</span>
+                        <span class="stat__label">позиций в каталоге</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__value">10 000+</span>
+                        <span class="stat__label">довольных клиентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__value">24/7</span>
+                        <span class="stat__label">поддержка</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <h3 class="footer__title">Контакты</h3>
+                    <ul class="footer__list">
+                        <li>📞 +7 (495) 123-45-67</li>
+                        <li>✉️ sales@autoparts.pro</li>
+                        <li>📍 Москва, ул. Примерная, 10</li>
+                        <li>🕐 Пн-Пт: 9:00–18:00</li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Документация</h3>
+                    <ul class="footer__list">
+                        <li><a href="#">Договор оферты</a></li>
+                        <li><a href="#">Реквизиты</a></li>
+                        <li><a href="#">Прайс-лист</a></li>
+                        <li><a href="#">Сертификаты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Оплата</h3>
+                    <ul class="footer__list">
+                        <li>💳 Безналичный расчёт</li>
+                        <li>🏦 Банковский перевод</li>
+                        <li>💰 Наличные</li>
+                        <li>📄 Работа с НДС</li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Интеграции</h3>
+                    <ul class="footer__list">
+                        <li>🔗 1С:Предприятие</li>
+                        <li>🔗 API складов</li>
+                        <li>🔗 XML-выгрузка</li>
+                        <li>🔗 Excel-прайс</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 AutoParts Pro. Все права защищены.</p>
+                <p class="footer__legal">ООО «АвтоПартс Про», ИНН 1234567890, ОГРН 1234567890123</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно товара -->
+    <div class="modal" id="productModal">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content modal__content--product">
+            <button class="modal__close" data-close-modal aria-label="Закрыть">&times;</button>
+            <div class="product-detail">
+                <div class="product-detail__image">
+                    <div class="product-detail__placeholder" id="modalProductImage">
+                        <span class="product-emoji">📦</span>
+                    </div>
+                </div>
+                <div class="product-detail__info">
+                    <div class="product-detail__badge" id="modalProductBadge">Опт</div>
+                    <h3 class="product-detail__title" id="modalProductName"></h3>
+                    <div class="product-detail__meta">
+                        <span class="meta-item"><strong>Артикул:</strong> <span id="modalProductOEM"></span></span>
+                        <span class="meta-item"><strong>Бренд:</strong> <span id="modalProductBrand"></span></span>
+                    </div>
+                    <div class="product-detail__stock" id="modalProductStock"></div>
+                    
+                    <div class="product-detail__prices" id="modalProductPrices">
+                        <!-- Цены будут загружены через JS -->
+                    </div>
+
+                    <div class="product-detail__moq">
+                        <strong>Минимальная партия:</strong> <span id="modalProductMOQ"></span> шт.
+                    </div>
+
+                    <div class="product-detail__quantity">
+                        <label for="modalQuantity">Количество:</label>
+                        <div class="quantity-control">
+                            <button class="quantity-btn" id="qtyDecrease">−</button>
+                            <input type="number" id="modalQuantity" class="quantity-input" min="1" value="1">
+                            <button class="quantity-btn" id="qtyIncrease">+</button>
+                        </div>
+                        <div class="quantity-error" id="quantityError"></div>
+                    </div>
+
+                    <div class="product-detail__total">
+                        <span>Итого:</span>
+                        <span class="total-price" id="modalTotalPrice">0 ₽</span>
+                    </div>
+
+                    <button class="btn btn--primary btn--full" id="addToCartBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Добавить в корзину
+                    </button>
+
+                    <div class="product-detail__cross" id="modalCrossNumbers">
+                        <!-- Кросс-номера -->
+                    </div>
+
+                    <div class="product-detail__compat" id="modalCompatibility">
+                        <!-- Совместимость -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cartModal">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content modal__content--cart">
+            <button class="modal__close" data-close-modal aria-label="Закрыть">&times;</button>
+            <h2 class="modal__title">Корзина</h2>
+            
+            <div class="cart-content" id="cartContent">
+                <div class="cart-empty" id="cartEmpty">
+                    <span class="cart-empty__emoji">🛒</span>
+                    <p>Корзина пуста</p>
+                    <a href="#catalog" class="btn btn--secondary" data-close-modal>Перейти в каталог</a>
+                </div>
+
+                <div class="cart-filled" id="cartFilled" style="display: none;">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Товары корзины -->
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Товары:</span>
+                            <span id="summarySubtotal">0 ₽</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Скидка за объём:</span>
+                            <span class="discount" id="summaryDiscount">−0 ₽</span>
+                        </div>
+                        <div class="summary-row summary-row--total">
+                            <span>Итого:</span>
+                            <span id="summaryTotal">0 ₽</span>
+                        </div>
+
+                        <div class="cart-details">
+                            <div class="form-group">
+                                <label for="companyName">Название организации:</label>
+                                <input type="text" id="companyName" class="form-input" placeholder="ООО «Пример»">
+                            </div>
+                            <div class="form-group">
+                                <label for="companyInn">ИНН:</label>
+                                <input type="text" id="companyInn" class="form-input" placeholder="1234567890">
+                            </div>
+                            <div class="form-group">
+                                <label for="contractNumber">Номер договора:</label>
+                                <input type="text" id="contractNumber" class="form-input" placeholder="№123 от 01.01.2024">
+                            </div>
+                            <div class="form-group">
+                                <label for="comments">Комментарий:</label>
+                                <textarea id="comments" class="form-input form-textarea" rows="3" placeholder="Дополнительная информация"></textarea>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--primary btn--full" id="checkoutBtn">
+                            📄 Оформить счёт
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div class="notification" id="notification">
+        <span class="notification__icon"></span>
+        <span class="notification__message"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

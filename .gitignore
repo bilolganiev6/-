@@ -1,0 +1,1 @@
+Nothing should be ignored in this case, as the added files (index.html, script.js, style.css) are all source code/config files without any build artifacts, dependencies, or temporary files in the changes.
